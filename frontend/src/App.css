@@ -1,0 +1,147 @@
+/* PricePantry App Styles */
+
+/* Header styles */
+.app-header {
+    @apply sticky top-0 z-50 bg-white border-b-2 border-black;
+}
+
+/* Main container */
+.app-container {
+    @apply min-h-screen bg-[#FAFAFA];
+}
+
+/* Product grid */
+.product-grid {
+    @apply grid grid-cols-1 gap-4;
+}
+
+@media (min-width: 640px) {
+    .product-grid {
+        @apply grid-cols-2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-grid {
+        @apply grid-cols-3;
+    }
+}
+
+/* Filter sidebar */
+.filter-sidebar {
+    @apply bg-white border-2 border-black p-4;
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);
+}
+
+/* Mobile menu */
+.mobile-menu {
+    @apply fixed inset-0 z-50 bg-white transform transition-transform duration-300;
+}
+
+.mobile-menu.closed {
+    @apply -translate-x-full;
+}
+
+.mobile-menu.open {
+    @apply translate-x-0;
+}
+
+/* Hero section */
+.hero-section {
+    @apply relative overflow-hidden py-12 md:py-20 px-4;
+    background: linear-gradient(135deg, #FAFAFA 0%, #F0F0F0 100%);
+}
+
+/* Special offer badge */
+.special-badge {
+    @apply absolute top-2 right-2 bg-[#FF3D00] text-white text-xs font-bold px-2 py-1 uppercase tracking-wider;
+}
+
+/* Store price row */
+.store-price-row {
+    @apply flex justify-between items-center py-2 border-b border-dashed border-gray-200 last:border-0;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    @apply animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-[#00E676];
+}
+
+/* Empty state */
+.empty-state {
+    @apply flex flex-col items-center justify-center py-16 text-center;
+}
+
+/* Notification toast */
+.notification-toast {
+    @apply fixed bottom-4 right-4 bg-black text-white px-6 py-4 rounded-lg shadow-lg z-50;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Favorites button */
+.favorite-btn {
+    @apply p-2 rounded-full transition-all duration-200;
+}
+
+.favorite-btn:hover {
+    @apply bg-gray-100;
+}
+
+.favorite-btn.active {
+    @apply text-red-500;
+}
+
+/* Search suggestions dropdown */
+.search-suggestions {
+    @apply absolute top-full left-0 right-0 bg-white border-2 border-black border-t-0 rounded-b-lg overflow-hidden z-50;
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);
+}
+
+.search-suggestion-item {
+    @apply px-4 py-3 cursor-pointer border-b border-gray-100 last:border-0 transition-colors;
+}
+
+.search-suggestion-item:hover {
+    @apply bg-[#00E676]/10;
+}
+
+/* Price comparison highlight */
+.price-comparison-best {
+    @apply bg-[#00E676] text-black font-bold px-3 py-1 rounded;
+}
+
+.price-comparison-regular {
+    @apply text-gray-700;
+}
+
+.price-comparison-unavailable {
+    @apply text-gray-400 line-through;
+}
+
+/* Mobile bottom nav */
+.mobile-bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-white border-t-2 border-black flex justify-around py-3 md:hidden z-40;
+}
+
+.mobile-bottom-nav-item {
+    @apply flex flex-col items-center text-xs font-medium text-gray-600;
+}
+
+.mobile-bottom-nav-item.active {
+    @apply text-black;
+}
+
+.mobile-bottom-nav-item.active .nav-icon {
+    @apply text-[#00E676];
+}

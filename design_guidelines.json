@@ -1,0 +1,159 @@
+{
+  "identity": {
+    "name": "PricePantry",
+    "persona": "The Anti-Inflation Tool",
+    "tone": "Efficient, Honest, High-Velocity",
+    "aesthetic": "Swiss Utility meets Fresh Market",
+    "description": "A brutalist, high-contrast price comparison tool that respects the user's time and wallet. No fluff, just data."
+  },
+  "typography": {
+    "font_family": {
+      "heading": "Manrope, sans-serif",
+      "body": "Satoshi, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-4xl md:text-6xl font-bold tracking-tighter",
+      "h2": "text-3xl md:text-4xl font-semibold tracking-tight",
+      "h3": "text-2xl font-medium tracking-tight",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm font-medium tracking-wide uppercase",
+      "price": "font-mono text-lg md:text-xl font-bold"
+    },
+    "imports": [
+      "@fontsource/manrope",
+      "@fontsource/jetbrains-mono"
+    ]
+  },
+  "colors": {
+    "palette": {
+      "primary": "#00E676",
+      "primary_foreground": "#000000",
+      "secondary": "#18181B",
+      "secondary_foreground": "#FFFFFF",
+      "background": "#FAFAFA",
+      "surface": "#FFFFFF",
+      "border": "#E4E4E7",
+      "muted": "#F4F4F5",
+      "destructive": "#FF3D00",
+      "stores": {
+        "coles": "#E01A22",
+        "woolworths": "#178841",
+        "aldi": "#001E79",
+        "iga": "#DA291C",
+        "costco": "#005DAA"
+      }
+    },
+    "usage": {
+      "best_price": "bg-[#00E676] text-black",
+      "worst_price": "text-muted-foreground line-through decoration-destructive/50",
+      "brand_accent": "border-l-4 border-[#00E676]"
+    }
+  },
+  "layout": {
+    "grid_system": {
+      "marketing": "grid grid-cols-1 md:grid-cols-12 gap-8",
+      "dashboard": "grid grid-cols-1 md:grid-cols-4 gap-6",
+      "product_list": "flex flex-col gap-4"
+    },
+    "spacing": {
+      "container_padding": "px-4 md:px-8 lg:px-12",
+      "section_gap": "py-16 md:py-24",
+      "card_padding": "p-6"
+    },
+    "radius": {
+      "default": "rounded-xl",
+      "button": "rounded-full",
+      "input": "rounded-lg"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all border-2 border-black font-bold uppercase tracking-wider",
+      "secondary": "bg-white text-black border-2 border-black hover:bg-gray-100 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all font-bold uppercase tracking-wider",
+      "ghost": "hover:bg-muted text-foreground font-medium"
+    },
+    "cards": {
+      "product": "bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.2)] transition-all duration-200",
+      "store_price": "flex justify-between items-center p-3 border-b border-dashed border-gray-200 last:border-0"
+    },
+    "inputs": {
+      "search": "h-14 text-lg border-2 border-black focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-primary shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] placeholder:text-gray-400"
+    },
+    "badges": {
+      "category": "rounded-full border border-black bg-white px-4 py-1 text-sm font-bold hover:bg-black hover:text-white transition-colors cursor-pointer",
+      "discount": "bg-destructive text-white font-bold px-2 py-0.5 text-xs uppercase tracking-wider"
+    }
+  },
+  "motion": {
+    "transitions": "transition-all duration-200 ease-out",
+    "hover_effects": "hover:-translate-y-1",
+    "micro_interactions": {
+      "button_click": "scale-95",
+      "list_item_hover": "bg-muted/50"
+    }
+  },
+  "assets": {
+    "images": {
+      "products": [
+        {
+          "name": "Fresh Eggs",
+          "url": "https://images.unsplash.com/photo-1559325507-906fa1f71364?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "category": "Dairy & Eggs"
+        },
+        {
+          "name": "Milk",
+          "url": "https://images.unsplash.com/photo-1559325507-906fa1f71364?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "category": "Dairy & Eggs"
+        },
+        {
+          "name": "Bread",
+          "url": "https://images.unsplash.com/photo-1559325507-906fa1f71364?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "category": "Bakery"
+        },
+        {
+          "name": "Apples",
+          "url": "https://images.unsplash.com/photo-1764951143763-8ded39870a0f?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "category": "Fruit & Veg"
+        },
+        {
+          "name": "Bananas",
+          "url": "https://images.unsplash.com/photo-1764951143763-8ded39870a0f?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "category": "Fruit & Veg"
+        }
+      ],
+      "stores": [
+        {
+          "name": "Costco",
+          "url": "https://images.unsplash.com/photo-1601202148957-99d5310635d1?crop=entropy&cs=srgb&fm=jpg&q=85"
+        },
+        {
+          "name": "Coles",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Coles_logo.svg/1200px-Coles_logo.svg.png"
+        },
+        {
+          "name": "Woolworths",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Woolworths_Logo_2012.svg/1200px-Woolworths_Logo_2012.svg.png"
+        },
+        {
+          "name": "Aldi",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/ALDI_logo_2017.svg/1200px-ALDI_logo_2017.svg.png"
+        },
+        {
+          "name": "IGA",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/IGA_logo.svg/1200px-IGA_logo.svg.png"
+        }
+      ]
+    },
+    "icons": "lucide-react"
+  },
+  "universal_guidelines": [
+    "Do not use gradients for backgrounds. Use solid colors or subtle noise textures.",
+    "Ensure all prices are displayed in monospace font for readability.",
+    "Use 'data-testid' on all interactive elements.",
+    "Mobile-first: Ensure touch targets are at least 44px.",
+    "Use Skeleton loaders for data fetching states.",
+    "Price comparison cards must clearly highlight the winner (lowest price).",
+    "Store logos should be used as visual anchors in the comparison list."
+  ]
+}
