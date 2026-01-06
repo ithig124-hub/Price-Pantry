@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* PricePantry Colors */
+    --primary: #00E676;
+    --primary-foreground: #000000;
+    --store-coles: #E01A22;
+    --store-woolworths: #178841;
+    --store-aldi: #001E79;
+    --store-iga: #DA291C;
+    --store-costco: #005DAA;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #FAFAFA;
+}
+
+code {
+    font-family: var(--font-mono);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F4F4F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D4D4D8;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #A1A1AA;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 98%;
+        --foreground: 240 10% 4%;
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 4%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 10% 4%;
+        --primary: 145 100% 45%;
+        --primary-foreground: 0 0% 0%;
+        --secondary: 240 6% 10%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 240 5% 96%;
+        --muted-foreground: 240 4% 46%;
+        --accent: 240 5% 96%;
+        --accent-foreground: 240 6% 10%;
+        --destructive: 14 100% 50%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 240 6% 90%;
+        --input: 240 6% 90%;
+        --ring: 145 100% 45%;
+        --chart-1: 12 76% 61%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+    }
+}
+
+/* Neo-Brutalist Button Styles */
+.btn-primary {
+    @apply bg-[#00E676] text-black font-bold uppercase tracking-wider px-6 py-3 border-2 border-black;
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+    transition: all 0.15s ease;
+}
+
+.btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+}
+
+.btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.btn-secondary {
+    @apply bg-white text-black font-bold uppercase tracking-wider px-6 py-3 border-2 border-black;
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+    transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+    @apply bg-gray-100;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+}
+
+.btn-secondary:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+/* Card styles */
+.card-brutalist {
+    @apply bg-white border-2 border-black;
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.card-brutalist:hover {
+    box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.2);
+    transform: translate(-2px, -2px);
+}
+
+/* Search input */
+.search-input {
+    @apply h-14 text-lg border-2 border-black rounded-lg px-4;
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);
+}
+
+.search-input:focus {
+    @apply outline-none border-[#00E676];
+    box-shadow: 4px 4px 0px 0px rgba(0,230,118,0.3);
+}
+
+/* Category badge */
+.category-badge {
+    @apply rounded-full border border-black bg-white px-4 py-1 text-sm font-bold cursor-pointer;
+    transition: all 0.15s ease;
+}
+
+.category-badge:hover {
+    @apply bg-black text-white;
+}
+
+.category-badge.active {
+    @apply bg-black text-white;
+}
+
+/* Price tag */
+.price-tag {
+    font-family: var(--font-mono);
+    @apply font-bold;
+}
+
+.price-best {
+    @apply bg-[#00E676] text-black px-2 py-1 rounded;
+}
+
+/* Store colors */
+.store-coles { color: var(--store-coles); }
+.store-woolworths { color: var(--store-woolworths); }
+.store-aldi { color: var(--store-aldi); }
+.store-iga { color: var(--store-iga); }
+.store-costco { color: var(--store-costco); }
+
+/* Animation classes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-stagger > * {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.animate-stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.animate-stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.animate-stagger > *:nth-child(4) { animation-delay: 0.2s; }
+.animate-stagger > *:nth-child(5) { animation-delay: 0.25s; }
+.animate-stagger > *:nth-child(6) { animation-delay: 0.3s; }
+
+/* Skeleton loading */
+.skeleton {
+    @apply bg-gray-200 animate-pulse rounded;
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+}
