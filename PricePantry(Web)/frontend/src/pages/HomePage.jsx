@@ -28,9 +28,10 @@ export const HomePage = () => {
   const fetchSpecials = useCallback(async () => {
     try {
       const data = await api.getSpecials(8);
-      setSpecials(data);
+      setSpecials(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Error fetching specials:", error);
+      setSpecials([]);
     } finally {
       setLoading(false);
     }
@@ -160,7 +161,7 @@ export const HomePage = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {specials.slice(0, 4).map((product) => (
+              {(specials || []).slice(0, 4).map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
