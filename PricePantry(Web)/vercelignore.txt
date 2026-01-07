@@ -1,0 +1,26 @@
+# Vercel ignore
+
+# Backend (not needed, api/ handles it)
+backend/__pycache__/
+backend/*.pyc
+backend/.env
+
+# Frontend dev
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+frontend/build/
+
+# Docs
+*.md
+!README.md
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
