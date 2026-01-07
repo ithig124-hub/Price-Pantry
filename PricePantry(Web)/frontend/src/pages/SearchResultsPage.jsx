@@ -60,17 +60,21 @@ export const SearchResultsPage = () => {
       };
 
       const data = await api.searchProducts(params);
+      const productsArray = Array.isArray(data?.products) ? data.products : [];
       
       if (append) {
-        setProducts((prev) => [...prev, ...data.products]);
+        setProducts((prev) => [...prev, ...productsArray]);
       } else {
-        setProducts(data.products);
+        setProducts(productsArray);
       }
       
-      setTotalResults(data.total);
-      setHasMore(data.products.length === 20 && pageNum * 20 < data.total);
+      setTotalResults(data?.total || 0);
+      setHasMore(productsArray.length === 20 && pageNum * 20 < (data?.total || 0));
     } catch (error) {
       console.error("Error fetching products:", error);
+      setProducts([]);
+      setTotalResults(0);
+      setHasMore(false);
     } finally {
       setLoading(false);
       setLoadingMore(false);
@@ -215,7 +219,7 @@ export const SearchResultsPage = () => {
                   </div>
                 ))}
               </div>
-            ) : products.length === 0 ? (
+            ) : (products || []).length === 0 ? (
               <div className="text-center py-16" data-testid="no-results">
                 <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-4xl">🔍</span>
@@ -246,11 +250,11 @@ export const SearchResultsPage = () => {
                   }`}
                   data-testid="products-grid"
                 >
-                  {products.map((product, index) => (
+                  {(products || []).map((product, index) => (
                     <React.Fragment key={product.id}>
                       <ProductCard product={product} />
                       {/* Insert ad after every 6th product */}
-                      {(index + 1) % 6 === 0 && index < products.length - 1 && (
+                      {(index + 1) % 6 === 0 && index < (products || []).length - 1 && (
                         <div className={`${viewMode === "grid" ? "col-span-full" : ""}`}>
                           <AdBanner type="horizontal" />
                         </div>

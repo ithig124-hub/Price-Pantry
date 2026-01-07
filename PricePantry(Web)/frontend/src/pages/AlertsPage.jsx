@@ -56,9 +56,10 @@ export const AlertsPage = () => {
   const fetchAlerts = useCallback(async () => {
     try {
       const data = await api.getAlerts();
-      setAlerts(data);
+      setAlerts(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Error fetching alerts:", error);
+      setAlerts([]);
     } finally {
       setLoading(false);
     }
@@ -78,9 +79,10 @@ export const AlertsPage = () => {
     setSearching(true);
     try {
       const data = await api.searchProducts({ q: query, page_size: 5 });
-      setSearchResults(data.products);
+      setSearchResults(Array.isArray(data?.products) ? data.products : []);
     } catch (error) {
       console.error("Error searching products:", error);
+      setSearchResults([]);
     } finally {
       setSearching(false);
     }
@@ -204,9 +206,9 @@ export const AlertsPage = () => {
                       data-testid="alert-search-input"
                     />
                     
-                    {searchResults.length > 0 && (
+                    {(searchResults || []).length > 0 && (
                       <div className="absolute top-full left-0 right-0 mt-1 bg-white border-2 border-black rounded-lg overflow-hidden z-10 max-h-60 overflow-y-auto">
-                        {searchResults.map((product) => {
+                        {(searchResults || []).map((product) => {
                           const bestPrice = getBestPrice(product.store_prices);
                           return (
                             <button
@@ -359,7 +361,7 @@ export const AlertsPage = () => {
               </div>
             ))}
           </div>
-        ) : alerts.length === 0 ? (
+        ) : (alerts || []).length === 0 ? (
           <div className="text-center py-16" data-testid="empty-alerts">
             <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <Bell className="w-12 h-12 text-gray-300" />
@@ -371,7 +373,7 @@ export const AlertsPage = () => {
           </div>
         ) : (
           <div className="space-y-4" data-testid="alerts-list">
-            {alerts.map((alert) => (
+            {(alerts || []).map((alert) => (
               <div
                 key={alert.id}
                 className="bg-white border-2 border-black rounded-xl p-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)] flex items-center justify-between"

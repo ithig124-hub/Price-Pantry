@@ -48,13 +48,15 @@ export const ShoppingListPage = () => {
   const fetchLists = useCallback(async () => {
     try {
       const data = await api.getShoppingLists();
-      setLists(data);
-      if (data.length > 0 && !currentList) {
-        setCurrentList(data[0]);
-        fetchTotals(data[0].id);
+      const listsArray = Array.isArray(data) ? data : [];
+      setLists(listsArray);
+      if (listsArray.length > 0 && !currentList) {
+        setCurrentList(listsArray[0]);
+        fetchTotals(listsArray[0].id);
       }
     } catch (error) {
       console.error("Error fetching lists:", error);
+      setLists([]);
     } finally {
       setLoading(false);
     }
@@ -103,9 +105,10 @@ export const ShoppingListPage = () => {
     setSearching(true);
     try {
       const data = await api.searchProducts({ q: query, page_size: 5 });
-      setSearchResults(data.products);
+      setSearchResults(Array.isArray(data?.products) ? data.products : []);
     } catch (error) {
       console.error("Error searching:", error);
+      setSearchResults([]);
     } finally {
       setSearching(false);
     }
