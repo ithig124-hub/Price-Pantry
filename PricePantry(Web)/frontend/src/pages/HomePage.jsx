@@ -104,19 +104,19 @@ export const HomePage = () => {
       </div>
 
       {/* Categories Section */}
-      <section className="py-12 px-4" data-testid="categories-section">
+      <section className="py-12 px-4 dark:bg-gray-950 transition-colors" data-testid="categories-section">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6">Browse by Category</h2>
+          <h2 className="text-2xl font-bold mb-6 dark:text-white">Browse by Category</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
             {CATEGORIES.map((category) => (
               <button
                 key={category.name}
                 onClick={() => handleCategoryClick(category.name)}
-                className="flex flex-col items-center gap-2 p-4 bg-white border-2 border-black rounded-xl hover:bg-[#00E676]/10 hover:-translate-y-1 transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)]"
+                className="flex flex-col items-center gap-2 p-4 bg-white dark:bg-gray-800 border-2 border-black dark:border-gray-600 rounded-xl hover:bg-[#00E676]/10 dark:hover:bg-[#00E676]/20 hover:-translate-y-1 transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)]"
                 data-testid={`category-${category.name.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 <span className="text-2xl">{category.emoji}</span>
-                <span className="text-sm font-medium text-center">{category.name}</span>
+                <span className="text-sm font-medium text-center dark:text-white">{category.name}</span>
               </button>
             ))}
           </div>
@@ -124,7 +124,7 @@ export const HomePage = () => {
       </section>
 
       {/* Specials Section */}
-      <section className="py-12 px-4 bg-white border-t-2 border-b-2 border-black" data-testid="specials-section">
+      <section className="py-12 px-4 bg-white dark:bg-gray-900 border-t-2 border-b-2 border-black dark:border-gray-700 transition-colors" data-testid="specials-section">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -132,14 +132,14 @@ export const HomePage = () => {
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold">Today's Specials</h2>
-                <p className="text-sm text-gray-500">Products currently on sale</p>
+                <h2 className="text-2xl font-bold dark:text-white">Today&apos;s Specials</h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Products currently on sale</p>
               </div>
             </div>
             <Button
               variant="outline"
               onClick={() => navigate("/search")}
-              className="hidden sm:flex items-center gap-2 border-2 border-black font-bold"
+              className="hidden sm:flex items-center gap-2 border-2 border-black dark:border-gray-600 dark:text-white font-bold"
               data-testid="view-all-btn"
             >
               View All
@@ -150,7 +150,7 @@ export const HomePage = () => {
           {loading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[...Array(4)].map((_, i) => (
-                <div key={i} className="bg-white border-2 border-gray-200 rounded-xl p-4">
+                <div key={i} className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl p-4">
                   <Skeleton className="aspect-square w-full mb-4" />
                   <Skeleton className="h-4 w-3/4 mb-2" />
                   <Skeleton className="h-6 w-1/2 mb-4" />
@@ -169,7 +169,7 @@ export const HomePage = () => {
           <Button
             variant="outline"
             onClick={() => navigate("/search")}
-            className="sm:hidden w-full mt-4 flex items-center justify-center gap-2 border-2 border-black font-bold"
+            className="sm:hidden w-full mt-4 flex items-center justify-center gap-2 border-2 border-black dark:border-gray-600 dark:text-white font-bold"
           >
             View All Products
             <ArrowRight className="w-4 h-4" />
@@ -178,25 +178,25 @@ export const HomePage = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-16 px-4" data-testid="how-it-works-section">
+      <section className="py-16 px-4 dark:bg-gray-950 transition-colors" data-testid="how-it-works-section">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-8">How PricePantry Works</h2>
+          <h2 className="text-2xl font-bold mb-8 dark:text-white">How PricePantry Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 bg-[#00E676] border-2 border-black rounded-xl flex items-center justify-center mb-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <Search className="w-8 h-8 text-black" />
               </div>
-              <h3 className="font-bold text-lg mb-2">1. Search</h3>
-              <p className="text-gray-600 text-sm">
-                Enter any grocery item you're looking for
+              <h3 className="font-bold text-lg mb-2 dark:text-white">1. Search</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                Enter any grocery item you&apos;re looking for
               </p>
             </div>
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 bg-[#00E676] border-2 border-black rounded-xl flex items-center justify-center mb-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <TrendingDown className="w-8 h-8 text-black" />
               </div>
-              <h3 className="font-bold text-lg mb-2">2. Compare</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="font-bold text-lg mb-2 dark:text-white">2. Compare</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
                 See prices from all 5 major stores side-by-side
               </p>
             </div>
@@ -204,8 +204,8 @@ export const HomePage = () => {
               <div className="w-16 h-16 bg-[#00E676] border-2 border-black rounded-xl flex items-center justify-center mb-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <ShoppingCart className="w-8 h-8 text-black" />
               </div>
-              <h3 className="font-bold text-lg mb-2">3. Save</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="font-bold text-lg mb-2 dark:text-white">3. Save</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
                 Shop at the store with the best price and save money
               </p>
             </div>
@@ -214,15 +214,15 @@ export const HomePage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 border-t-2 border-black bg-white">
+      <footer className="py-8 px-4 border-t-2 border-black dark:border-gray-700 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-[#00E676] border-2 border-black flex items-center justify-center font-bold text-black">
               P
             </div>
-            <span className="font-bold">PricePantry</span>
+            <span className="font-bold dark:text-white">PricePantry</span>
           </div>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             Compare grocery prices across Coles, Woolworths, Aldi, IGA & Costco
           </p>
         </div>

@@ -44,11 +44,11 @@ export const ProductCard = ({ product, onFavoriteChange }) => {
 
   return (
     <div
-      className="bg-white border-2 border-black rounded-xl overflow-hidden transition-all duration-200 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.1)] hover:-translate-y-1"
+      className="bg-white dark:bg-gray-800 border-2 border-black dark:border-gray-600 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.05)] hover:-translate-y-1"
       data-testid={`product-card-${product.id}`}
     >
       {/* Product Image */}
-      <div className="relative aspect-square bg-gray-100">
+      <div className="relative aspect-square bg-gray-100 dark:bg-gray-700">
         <img
           src={product.image}
           alt={product.name}
@@ -62,7 +62,7 @@ export const ProductCard = ({ product, onFavoriteChange }) => {
         )}
         <button
           onClick={handleFavoriteToggle}
-          className={`absolute top-2 right-2 p-2 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 transition-all ${
+          className={`absolute top-2 right-2 p-2 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-gray-200 dark:border-gray-600 transition-all ${
             isFavorite ? "text-red-500" : "text-gray-400 hover:text-red-500"
           }`}
           data-testid={`favorite-btn-${product.id}`}
@@ -74,9 +74,9 @@ export const ProductCard = ({ product, onFavoriteChange }) => {
       {/* Product Info */}
       <div className="p-4">
         <div className="mb-2">
-          <p className="text-sm text-gray-500 font-medium">{product.brand}</p>
-          <h3 className="font-bold text-lg leading-tight line-clamp-2">{product.name}</h3>
-          <p className="text-sm text-gray-500">{product.size}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">{product.brand}</p>
+          <h3 className="font-bold text-lg leading-tight line-clamp-2 dark:text-white">{product.name}</h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{product.size}</p>
         </div>
 
         {/* Best Price Highlight */}
@@ -108,7 +108,7 @@ export const ProductCard = ({ product, onFavoriteChange }) => {
             <div
               key={store}
               className={`flex justify-between items-center py-2 px-2 rounded ${
-                index === 0 ? "bg-[#00E676]/10" : ""
+                index === 0 ? "bg-[#00E676]/10 dark:bg-[#00E676]/20" : ""
               }`}
               data-testid={`price-row-${store}`}
             >
@@ -117,7 +117,7 @@ export const ProductCard = ({ product, onFavoriteChange }) => {
                   className="w-2 h-2 rounded-full"
                   style={{ backgroundColor: STORE_INFO[store]?.color }}
                 />
-                <span className="text-sm font-medium">{STORE_INFO[store]?.name}</span>
+                <span className="text-sm font-medium dark:text-white">{STORE_INFO[store]?.name}</span>
                 {data.on_special && (
                   <Badge variant="destructive" className="text-[10px] px-1 py-0">
                     SALE
@@ -126,7 +126,7 @@ export const ProductCard = ({ product, onFavoriteChange }) => {
               </div>
               <span
                 className={`font-mono font-bold ${
-                  index === 0 ? "text-black" : "text-gray-600"
+                  index === 0 ? "text-black dark:text-white" : "text-gray-600 dark:text-gray-300"
                 }`}
               >
                 {formatPrice(data.price)}
@@ -139,7 +139,7 @@ export const ProductCard = ({ product, onFavoriteChange }) => {
         {sortedPrices.length > 3 && (
           <button
             onClick={() => setShowAllPrices(!showAllPrices)}
-            className="w-full mt-2 text-sm text-gray-500 hover:text-black font-medium py-1"
+            className="w-full mt-2 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white font-medium py-1"
             data-testid={`toggle-prices-${product.id}`}
           >
             {showAllPrices ? "Show less" : `Show ${sortedPrices.length - 3} more stores`}
@@ -150,7 +150,7 @@ export const ProductCard = ({ product, onFavoriteChange }) => {
         {product.price_history && product.price_history.length > 0 && (
           <button
             onClick={() => setShowPriceHistory(true)}
-            className="w-full mt-3 flex items-center justify-center gap-2 text-sm font-medium text-gray-600 hover:text-black bg-gray-100 hover:bg-gray-200 rounded-lg py-2 transition-colors"
+            className="w-full mt-3 flex items-center justify-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg py-2 transition-colors"
             data-testid={`price-history-btn-${product.id}`}
           >
             <LineChart className="w-4 h-4" />
@@ -160,7 +160,7 @@ export const ProductCard = ({ product, onFavoriteChange }) => {
 
         {/* Unavailable Stores */}
         {Object.entries(product.store_prices).filter(([_, d]) => !d.available).length > 0 && (
-          <p className="text-xs text-gray-400 mt-2">
+          <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
             Unavailable at:{" "}
             {Object.entries(product.store_prices)
               .filter(([_, d]) => !d.available)

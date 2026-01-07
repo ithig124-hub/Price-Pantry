@@ -66,7 +66,7 @@ export const FilterPanel = ({ filters, onFilterChange, onReset }) => {
         open={openSections.category}
         onOpenChange={() => toggleSection("category")}
       >
-        <CollapsibleTrigger className="flex items-center justify-between w-full py-2 font-bold text-lg">
+        <CollapsibleTrigger className="flex items-center justify-between w-full py-2 font-bold text-lg dark:text-white">
           Category
           <ChevronDown
             className={`w-5 h-5 transition-transform ${
@@ -85,7 +85,7 @@ export const FilterPanel = ({ filters, onFilterChange, onReset }) => {
                 onCheckedChange={() => handleCategoryChange(category)}
                 data-testid={`filter-category-${category.toLowerCase().replace(/\s+/g, "-")}`}
               />
-              <span className="text-sm">{category}</span>
+              <span className="text-sm dark:text-gray-300">{category}</span>
             </label>
           ))}
         </CollapsibleContent>
@@ -96,7 +96,7 @@ export const FilterPanel = ({ filters, onFilterChange, onReset }) => {
         open={openSections.store}
         onOpenChange={() => toggleSection("store")}
       >
-        <CollapsibleTrigger className="flex items-center justify-between w-full py-2 font-bold text-lg">
+        <CollapsibleTrigger className="flex items-center justify-between w-full py-2 font-bold text-lg dark:text-white">
           Store
           <ChevronDown
             className={`w-5 h-5 transition-transform ${
@@ -120,7 +120,7 @@ export const FilterPanel = ({ filters, onFilterChange, onReset }) => {
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: store.color }}
                 />
-                <span className="text-sm">{store.name}</span>
+                <span className="text-sm dark:text-gray-300">{store.name}</span>
               </div>
             </label>
           ))}
@@ -132,7 +132,7 @@ export const FilterPanel = ({ filters, onFilterChange, onReset }) => {
         open={openSections.price}
         onOpenChange={() => toggleSection("price")}
       >
-        <CollapsibleTrigger className="flex items-center justify-between w-full py-2 font-bold text-lg">
+        <CollapsibleTrigger className="flex items-center justify-between w-full py-2 font-bold text-lg dark:text-white">
           Price Range
           <ChevronDown
             className={`w-5 h-5 transition-transform ${
@@ -149,7 +149,7 @@ export const FilterPanel = ({ filters, onFilterChange, onReset }) => {
             className="w-full"
             data-testid="price-range-slider"
           />
-          <div className="flex justify-between mt-2 text-sm text-gray-600">
+          <div className="flex justify-between mt-2 text-sm text-gray-600 dark:text-gray-400">
             <span>${priceRange[0]}</span>
             <span>${priceRange[1]}+</span>
           </div>
@@ -160,7 +160,7 @@ export const FilterPanel = ({ filters, onFilterChange, onReset }) => {
       <Button
         variant="outline"
         onClick={onReset}
-        className="w-full border-2 border-black font-bold"
+        className="w-full border-2 border-black dark:border-gray-600 dark:text-white font-bold"
         data-testid="reset-filters-btn"
       >
         Reset Filters
@@ -172,8 +172,8 @@ export const FilterPanel = ({ filters, onFilterChange, onReset }) => {
     <>
       {/* Desktop Filter Panel */}
       <div className="hidden lg:block w-64 flex-shrink-0">
-        <div className="sticky top-24 bg-white border-2 border-black rounded-xl p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]">
-          <h2 className="font-bold text-xl mb-4 flex items-center gap-2">
+        <div className="sticky top-24 bg-white dark:bg-gray-800 border-2 border-black dark:border-gray-600 rounded-xl p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] transition-colors">
+          <h2 className="font-bold text-xl mb-4 flex items-center gap-2 dark:text-white">
             <Filter className="w-5 h-5" />
             Filters
           </h2>
@@ -187,7 +187,7 @@ export const FilterPanel = ({ filters, onFilterChange, onReset }) => {
           <SheetTrigger asChild>
             <Button
               variant="outline"
-              className="border-2 border-black font-bold flex items-center gap-2"
+              className="border-2 border-black dark:border-gray-600 dark:text-white font-bold flex items-center gap-2"
               data-testid="mobile-filter-trigger"
             >
               <Filter className="w-4 h-4" />
@@ -199,14 +199,14 @@ export const FilterPanel = ({ filters, onFilterChange, onReset }) => {
               )}
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-[300px] p-0">
-            <div className="p-4 border-b-2 border-black flex items-center justify-between">
-              <h2 className="font-bold text-xl flex items-center gap-2">
+          <SheetContent side="left" className="w-[300px] p-0 dark:bg-gray-900">
+            <div className="p-4 border-b-2 border-black dark:border-gray-700 flex items-center justify-between">
+              <h2 className="font-bold text-xl flex items-center gap-2 dark:text-white">
                 <Filter className="w-5 h-5" />
                 Filters
               </h2>
               <SheetClose asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="dark:text-white">
                   <X className="w-5 h-5" />
                 </Button>
               </SheetClose>

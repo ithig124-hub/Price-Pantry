@@ -123,11 +123,11 @@ export const SearchResultsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA]">
+    <div className="min-h-screen bg-[#FAFAFA] dark:bg-gray-950 transition-colors">
       <Header />
 
       {/* Search Header */}
-      <div className="bg-white border-b-2 border-black py-4 px-4 sticky top-[65px] z-40">
+      <div className="bg-white dark:bg-gray-900 border-b-2 border-black dark:border-gray-700 py-4 px-4 sticky top-[65px] z-40 transition-colors">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <div className="flex-1 w-full">
@@ -152,10 +152,10 @@ export const SearchResultsPage = () => {
             {/* Results Header */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
               <div>
-                <h1 className="text-2xl font-bold" data-testid="search-results-title">
+                <h1 className="text-2xl font-bold dark:text-white" data-testid="search-results-title">
                   {query ? `Results for "${query}"` : filters.category ? filters.category : "All Products"}
                 </h1>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   {totalResults} products found
                 </p>
               </div>

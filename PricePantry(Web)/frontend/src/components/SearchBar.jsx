@@ -116,7 +116,7 @@ export const SearchBar = ({ initialQuery = "", onSearch, large = false }) => {
     <div className={`relative w-full ${large ? "max-w-2xl" : "max-w-xl"}`} data-testid="search-bar">
       <form onSubmit={handleSubmit} className="relative">
         <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
           <Input
             ref={inputRef}
             type="text"
@@ -131,16 +131,16 @@ export const SearchBar = ({ initialQuery = "", onSearch, large = false }) => {
             placeholder="Search for groceries..."
             className={`pl-12 pr-24 ${
               large
-                ? "h-16 text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]"
-                : "h-12 border-2 border-black"
-            } rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-[#00E676]`}
+                ? "h-16 text-lg border-2 border-black dark:border-gray-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]"
+                : "h-12 border-2 border-black dark:border-gray-600"
+            } rounded-xl bg-white dark:bg-gray-800 dark:text-white focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-[#00E676]`}
             data-testid="search-input"
           />
           {query && (
             <button
               type="button"
               onClick={clearQuery}
-              className="absolute right-20 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded-full"
+              className="absolute right-20 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full"
               data-testid="clear-search"
             >
               <X className="w-4 h-4 text-gray-400" />
@@ -162,22 +162,22 @@ export const SearchBar = ({ initialQuery = "", onSearch, large = false }) => {
       {showSuggestions && suggestions.length > 0 && (
         <div
           ref={suggestionsRef}
-          className="absolute top-full left-0 right-0 mt-1 bg-white border-2 border-black rounded-xl overflow-hidden z-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]"
+          className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 border-2 border-black dark:border-gray-600 rounded-xl overflow-hidden z-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)]"
           data-testid="search-suggestions"
         >
           {suggestions.map((suggestion, index) => (
             <button
               key={suggestion.id}
               onClick={() => handleSuggestionClick(suggestion)}
-              className={`w-full px-4 py-3 text-left flex items-center gap-3 transition-colors border-b border-gray-100 last:border-0 ${
-                index === selectedIndex ? "bg-[#00E676]/10" : "hover:bg-gray-50"
+              className={`w-full px-4 py-3 text-left flex items-center gap-3 transition-colors border-b border-gray-100 dark:border-gray-700 last:border-0 ${
+                index === selectedIndex ? "bg-[#00E676]/10 dark:bg-[#00E676]/20" : "hover:bg-gray-50 dark:hover:bg-gray-700"
               }`}
               data-testid={`suggestion-${index}`}
             >
               <Search className="w-4 h-4 text-gray-400 flex-shrink-0" />
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-black truncate">{suggestion.name}</p>
-                <p className="text-sm text-gray-500 truncate">
+                <p className="font-medium text-black dark:text-white truncate">{suggestion.name}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 truncate">
                   {suggestion.brand} · {suggestion.category}
                 </p>
               </div>
