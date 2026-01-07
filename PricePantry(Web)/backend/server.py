@@ -243,7 +243,7 @@ async def send_price_alert_email(recipient_email: str, product_name: str, target
                     </div>
                 </div>
                 <p style="color: #666;">You're saving <strong style="color: #00E676;">${(target_price - current_price):.2f}</strong> compared to your target!</p>
-                <a href="https://pantry-finder-1.preview.emergentagent.com/search?q={product_name.replace(' ', '%20')}" 
+                <a href="https://emergent-logo-patch.preview.emergentagent.com/search?q={product_name.replace(' ', '%20')}" 
                    style="display: inline-block; background-color: #00E676; color: black; padding: 12px 24px; text-decoration: none; font-weight: bold; border: 2px solid black; border-radius: 8px; margin-top: 20px;">
                     View Deal →
                 </a>
