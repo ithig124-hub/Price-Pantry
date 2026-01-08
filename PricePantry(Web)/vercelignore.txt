@@ -1,26 +1,14 @@
-# Vercel ignore
+# Don't ignore these - needed for deployment!
+!api/
+!backend/
+!frontend/
 
-# Backend (not needed, api/ handles it)
-backend/__pycache__/
-backend/*.pyc
-backend/.env
-
-# Frontend dev
+# Ignore development files
 frontend/node_modules/
-frontend/.env
 frontend/.env.local
-frontend/build/
+backend/__pycache__/
+backend/.env
 
 # Docs
 *.md
 !README.md
-
-# Git
-.git/
-.gitignore
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
