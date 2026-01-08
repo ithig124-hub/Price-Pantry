@@ -1,0 +1,15 @@
+fastapi==0.110.1
+motor==3.3.1
+pydantic==2.12.5
+pydantic-core==2.41.5
+python-dotenv==1.2.1
+httpx==0.28.1
+aiohttp==3.13.3
+beautifulsoup4==4.14.3
+resend==2.19.0
+email-validator==2.3.0
+dnspython==2.8.0
+pymongo==4.5.0
+starlette==0.37.2
+anyio==4.12.0
+

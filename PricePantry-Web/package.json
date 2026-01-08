@@ -1,0 +1,6 @@
+{
+  "name": "pricepantry-frontend",
+  "scripts": {
+    "vercel-build": "cd frontend && yarn install && yarn build"
+  }
+}
