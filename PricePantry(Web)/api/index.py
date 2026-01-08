@@ -1,14 +1,15 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from mangum import Mangum
 import sys
 import os
+from pathlib import Path
 
-# Add backend directory to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'backend'))
+# Add backend directory to Python path
+backend_dir = Path(__file__).parent.parent / "backend"
+sys.path.insert(0, str(backend_dir))
 
-# Import the FastAPI app from backend
+# Import FastAPI app
 from server import app
 
-# Wrap FastAPI app for Vercel serverless
-handler = Mangum(app)
+# Export for Vercel (Vercel expects 'app' or 'handler')
+# Vercel's Python runtime handles ASGI apps directly
+# No need for Mangum wrapper - Vercel handles it!
+
